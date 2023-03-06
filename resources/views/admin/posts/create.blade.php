@@ -37,6 +37,7 @@
                     <div class="form-group my-3">
                         <label class="control-label">Tipo </label>
                         <select class="form-comntrol" name="type_id" id="type_id">
+                            <option value="">Seziona il tipo</option>
                             @foreach ($types as $type)
                                 <option value="{{ $type->id }}">{{ $type->name }}</option>
                             @endforeach
