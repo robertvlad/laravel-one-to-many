@@ -34,6 +34,14 @@
                         <label class="control-label">CONTENUTO</label>
                         <textarea name="content" id="content" cols="30" rows="10" placeholder="Contenuto" class="form-control"></textarea>
                     </div>
+                    <div class="form-group my-3">
+                        <label class="control-label">Tipo </label>
+                        <select class="form-comntrol" name="type_id" id="type_id">
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                     <div class="form-group my-2">
                         <button type="submit" class="btn btn-success">Salva</button>                        
                     </div>                    

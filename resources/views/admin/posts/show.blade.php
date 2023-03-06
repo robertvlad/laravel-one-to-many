@@ -28,7 +28,8 @@
             <p class="pb-2">{{ $post['content']}}</p>
             <p>Slug: {{ $post['slug'] }}</p>
             <p>Creato il: {{ $post['created_at']}}</p>
-            <p>Ultima modifica effettuata il: {{ $post['updated_at']}}</p> 
+            <p>Ultima modifica effettuata il: {{ $post['updated_at']}}</p>
+            <p>Tipo: {{ $post->type ? $post->type->name : 'Senza tipologia' }}</p>
         </div>
     </div>
 </div>

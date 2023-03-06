@@ -25,6 +25,7 @@
                     <th>Slug</th>
                     <th>Data creazione</th>
                     <th>Ultima modifica</th>
+                    <th>Categoria</th>
                     <th>Azioni</th>
                 </thead>
                 <tbody>
@@ -34,7 +35,8 @@
                             <td>{{ $post['title']}}</td>
                             <td>{{ $post['slug']}}</td>
                             <td>{{ $post['created_at']}}</td>
-                            <td>{{ $post['updated_at']}}</td>                            
+                            <td>{{ $post['updated_at']}}</td> 
+                            <td>{{ $post->type ? $post->type->name : 'Senza tipologia' }}</td>                           
                             <td>
                                 <a href="{{ route('admin.posts.show', ['post' => $post['slug']]) }}" title="Visualizza Post" class="btn btn-square btn-primary btn-sm">
                                     <i class="fas fa-eye"></i>
