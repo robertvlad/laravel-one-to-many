@@ -73,19 +73,27 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UpdateTypeRequest  $request
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Type $type)
+    public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Type::generateSlug($request->name);
+
+        $form_data['slug'] = $slug;
+
+        $type->update($form_data);
+
+        return redirect()->route('admin.types.show', $type->slug)->with('message', 'La tipologia è stata modificata');
     }
 
     /**
@@ -96,6 +104,8 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        return redirect()->route('admin.types.index')->with('message', 'La tipologia è stata cancellata con successo');
     }
 }

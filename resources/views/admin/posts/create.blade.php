@@ -26,9 +26,6 @@
                     <div class="form-group">
                         <label class="control-label">TITOLO</label>
                         <input type="text" class="form-control" placeholder="Titolo" id="title" name="title">
-                        @error('title')
-                            <div class="text-danger">** {{ $message }}</div>                            
-                        @enderror
                     </div>
                     <div class="form-group">
                         <label class="control-label">CONTENUTO</label>
