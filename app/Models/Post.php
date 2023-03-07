@@ -11,7 +11,7 @@ use App\Models\Type;
 class Post extends Model
 {
     protected $fillable = ['title', 'content', 'slug', 'type_id'];
-    
+
     use HasFactory;
 
     public static function generateSlug($title) {

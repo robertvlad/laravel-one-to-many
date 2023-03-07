@@ -56,16 +56,17 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.posts.index' ? 'bg-secondary' : '' }}" href="{{route('admin.posts.index') }}">
-                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Posts
+                                    <i class="fa-solid fa-newspaper fa-lg fa-fw"></i> Projects
                                 </a>
                             </li>
-
+                            <li class="nav-item">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.types.index' ? 'bg-secondary' : '' }}" href="{{route('admin.types.index') }}">
+                                    <i class="fa-solid fa-list fa-lg fa-fw"></i> Types
+                                </a>
+                            </li>
                         </ul>
-
-
                     </div>
                 </nav>
-
                 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                     @yield('content')
                 </main>

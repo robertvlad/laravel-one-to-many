@@ -27,6 +27,8 @@ class StorePostRequest extends FormRequest
             'title' => ['required', 'unique:posts', 'max:150'],
             'content' => ['nullable'],
             'type_id' => ['nullable', 'exists:types,id'],
+            'type_id.exists' => 'Seleziona una tipologia valida'
+
         ];
     }
 

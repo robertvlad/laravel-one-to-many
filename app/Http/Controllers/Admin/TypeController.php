@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreTypeRequest;
+use App\Http\Requests\UpdateTypeRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TypeController extends Controller
 {
@@ -15,7 +18,9 @@ class TypeController extends Controller
      */
     public function index()
     {
-        //
+        $types = Type::all();
+
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -25,18 +30,28 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+
+        return view('admin.types.create', compact('types'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \APP\Http\Requests\StoreTypeRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreTypeRequest $request)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Type::generateSlug($request->name);
+
+        $form_data['slug'] = $slug;
+        
+        $newType = Type::create($form_data);
+
+        return redirect()->route('admin.types.show', $newType->slug)->with('message', 'Type creato correttamente');;
     }
 
     /**
@@ -47,7 +62,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        //
+        return view('admin.types.show', compact('type'));
     }
 
     /**

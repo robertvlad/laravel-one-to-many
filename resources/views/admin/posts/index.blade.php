@@ -47,7 +47,7 @@
                                 <form class="d-inline-block" action="{{ route('admin.posts.destroy', $post->slug) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-square btn-danger">
+                                    <button type="submit" class="btn btn-sm btn-square btn-danger" title="Elimina Post">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
@@ -56,7 +56,7 @@
                         @empty
                         <tr>
                             <td scope='row'>
-                                Nessun Post presente. <a href="{{ route('admin.posts.create') }}">CLICCA QUI</a> per creare un nuovo Post.    
+                                <p>Nessun Post presente. <a href="{{ route('admin.posts.create') }}">CLICCA QUI</a> per creare un nuovo Post.</p>
                             </td>  
                         </tr>                   
                     @endforelse
