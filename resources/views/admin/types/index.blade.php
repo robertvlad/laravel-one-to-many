@@ -27,7 +27,7 @@
                     <th>Azioni</th>
                 </thead>
                 <tbody>
-                    @foreach ($types as $type)
+                    @forelse ($types as $type)
                         <tr>
                             <td>{{ $type->id }}</td>
                             <td>{{ $type->name }}</td>
@@ -49,7 +49,13 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                        <tr>
+                            <td scope='row'>
+                                <p>Nessun Post presente. <a href="{{ route('admin.types.create') }}">CLICCA QUI</a> per creare un nuovo Type.</p>
+                            </td>  
+                        </tr>
+                    @endforelse
                 </tbody>
             </table>
         </div>
